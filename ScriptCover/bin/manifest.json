@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Javascript Coverage Analysis Extension",
+  "version": "1.0.0.12",
+  "description": "Reports Javascript coverage statistics for web pages.",
+  //"background_page": "background.html",
+  "background": {
+	  "page": "background.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+//        "http://*/*",
+//        "https://*/*"
+		"http://192.168.15.84/*",
+		"http://127.0.0.1/*",
+		"http://localhost/*",
+		"http://www.qhkly.com/*",
+		"http://team.qhkly.com/*",
+		"http://node.qhkly.com/*"
+      ],
+      "js": [
+        "third_party/lib/parse-js.js",
+        "third_party/lib/process.js",
+        "resources/content_compiled.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "resources/brticon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "management"
+  ],
+  "web_accessible_resources": [
+    "resources/inject_compiled.js",
+    "resources/styles/coverage_report.css"
+  ],
+  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKt8LvtvhDaXkocCEY/Kb4+EeQo2Pu7cQu+dyYUbArUZJ7aEYCug1urxCvMlN6NgexJuWd2Sbu3qRRXSS7KRT/lLN4KwflcC3QUFAgfrRfV2D0LsWrr020P8X+cb91lBiEZCWQjAI4oEYyYwUJkwyZw7uVj26keg9oV+c7aPSzVwIDAQAB"
+}
